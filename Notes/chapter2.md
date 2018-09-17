@@ -113,6 +113,147 @@ $$ n \gt \log_2(\frac{b-a}{\epsilon}) -1$$
 
 ---
 
+## Converting To f(x) = 0
+
+Eg Estimate $\root^4 \of 7$ in the range [1,2]
+
+let $x = \root^4 \of 7$ 
+
+$ x^4 = 7 $
+
+$ x^4 -7 = 0$
+
+$ f(x) = x^4 -7$
+
+Always convert to the form f(x) = 0 when attempting to solve numerical methods.
+
+Eg Find the intersection point between $y = e^x, y=x^2 + 5 $
+
+let $ y = y$
+
+$ e^x = x^2 +5$
+
+$ e^x -x^2 -5 =0 $
+
+$ f(x) = e^x -x^2 -5$
+
+Eg $p(x) =e^x + x^2 - \root \of x +1$ is a profit function. Estimate the number of units that leads to maximum profit in [a,b]
+
+$ p`(x) = e^x +2x - \frac{1}{(2)({\root \of x})}$
+
+and find $p`(x) = 0$
+---
+
+## False Position Method
+
+It is similar to bisection, and needs 
+
+$f(x) = 0, [a,b]$
+
+where $f(a)*f(b) \lt 0$
+
+But the value of $C_n$ is not of $f(\frac{b_n-a_n}{2})$
+
+It relies on a geometric method using the **seacant line** between $a_n,b_n$
+
+![seacant](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/False_position_method.svg/351px-False_position_method.svg.png)
+
+Mathemtically, this is expressed as :
+
+$$ C_n = b_n- \frac{f(b_n)(b_n-a_n)}{f(b_n)-f(a_n)}$$
+
+then $C_0 = b_0 -\frac{f(b_0)(b_0-a_0)}{f(b_0)-f(a_0)}, f(C_0)$
+
+and $C_1 = b_1 - \frac{f(b_1)(b_1-a_1)}{f(b_1)-f(a_1)}, f(C_1)$
+
+so on and so forth.
+
+The slope of the resultant line is given by 
+
+$$S = \frac{f(b_0)-f(a_0)}{b_0-a_0}$$
+
+then   $S = \frac{f(b_0)-f(a_0)}{b_0-a_0}  = \frac{0-f(b_0)}{C_0-b_0}$
+
+$ \frac{C_0-b_0}{-f(b_0)} = \frac{b_0-a_0}{f(b_0)-f(a_0)}$
+
+
+$ C_0-b_0 = \frac{f(b_0)(b_0-a_0)}{f(b_0)-f(a_0)} $
+
+$C_0 = b_0 -\frac{f(b_0)(b_0-a_0)}{f(b_0)-f(a_0)}$
+
+We determine the next [a,b] depending on the sign of $C_n$
+
+if $C_n \lt 0$, then $[a_{n+1},b_{n+1}] = [C_0,b_n]$, given that $f(a) \lt 0$and $f(b) \gt 0$ 
+
+This method always converges to the true root, but it is very slow as well.
+
+
+---
+
+## Fixed Point Iteration
+
+Say we have a function $f(x)$ with root $p$.  The general idea is that we have some function taken from $f(x)$, called $g(x)$. We used the **fixed point** of $g(x)$, which will be the roots of $f(x)$. Not all functions derived are suitable however.
+
+### What is a Fixed Point?
+
+$x=p$ is a fixed point of $g(x)$ if $g(p)=p$
+
+For example, given the function $g(x) =  x^2$, then $0,1$ are fixed points of $g(x)$. For more complex functions, we solve $g(x) = x$, since we want all images of x that are equal to x. so in this case :
+
+$x^2 = x$
+
+$x(1-x) = 0 $
+
+$x=0,1$
+
+Geomertrically speaking, the fixed points of $g(x)$ are the intersection points between $g(x)$ and $y=x$, for example,for $g(x) = 4x - x^2 $  : 
+
+![intersect](https://d2gne97vdumgn3.cloudfront.net/api/file/P7AhayfOQj6gs7y9o9KB)
+
+In this case, $0,3$ are fixed points of $4x- x^2$
+
+---
+
+### Where do we get g(x) from?
+
+
+We need to bring $f(x) = 0$ to the form $x-g(x) = 0 $, for example $f(x) = x^2 -5x +6 = 0$ becomes $x^2 = 5x -6 \to x = \root \of{5x - 6} \to x-\root \of{5x-6}$, so in this case $g(x) = \root \of{5x-6} $. We can extract more than one $g(x)$ from $f(x)$, for example, we can extract $x= \frac{x^2+6}{5}$ by reearanging as well.
+
+We can do this reerangement because we assumed that $f(x) = 0$
+
+---
+
+### Why are Fixed Points of g(x) Roots of f(x)?
+
+let $g(p) = p$
+
+then $p-g(p) = 0$
+
+but $p-g(p) = f(p)$
+
+and since $p-g(p)=0$, then $p-g(p)=f(p)=0$ and $p$ is a root of $f(x)$
+
+---
+
+FPI is a method where we find approximations of the fixed points of $g(x)$. we need : 
+
+1. $g(x)$.
+2. $p_0$, or the initial value/guess value.
+
+
+The formula of FPI is given by :
+
+$$p_{n+1} = g(p_n)$$
+
+then, $p_1=g(p_0)$, $p_2=g(p_1)$, so on and so forth.
+
+If the sequence $p_0,p_1,p_2,...p_n$ convrges to some $p$, then $p$ is a fixed point of $g(x)$, and a root of $f(x)$
+
+This can be proven as follows :
+
+$\lim_{n \to \infty} p_n = g(p_{n-1})$
+
+$p_\infty = g(p_{\infty-1}) = g(p_\infty)$
 
 
 
@@ -120,6 +261,4 @@ $$ n \gt \log_2(\frac{b-a}{\epsilon}) -1$$
 
 
 
-
-
-
+---

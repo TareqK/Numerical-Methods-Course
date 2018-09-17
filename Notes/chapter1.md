@@ -47,7 +47,7 @@ x = c is a root(a zero) for f(x), and x = c is a solution for the equasion.
 
 ### Mean Value Theorem
 
-if f &isin; C[a,b] and f` & isin; C(a,b), then &exist; c &isin; (a,b) such that  : 
+if f &isin; C[a,b] and f\`&isin; C(a,b), then &exist; c &isin; (a,b) such that  : 
 
 $$ f`(c) = \frac{f(b) - f(a)}{b-a} $$
 
@@ -74,7 +74,7 @@ In simple terms, if f is generally decreasing on an open interval, then there is
 
 ### Taylor Series 
 
-The Taylor Series/ Taylor Expansion is a way to express a function that isn't very "nice" as a series of polynomials that can be used to express the function. In more technical terms, the tayloer series can be formally defined as follows : 
+The Taylor Series/ Taylor Expansion is a way to express a function that isn't very "nice" as a series of polynomials that can be used to express the function. In more technical terms, the taylor series can be formally defined as follows : 
 
 > Given f(x) and a center x = a, then the taylor expantion series for f(x) about x = a is given by :
 
@@ -86,7 +86,7 @@ The error of this approximation is given by :
 
 $$ E(x) = \frac{f^{n+1}(c)(x-a)^{n+1}}{(n+1)!}$$
 
-where x is a number between x and a.
+where c is a number between x and a.
 
 ---
 
@@ -195,6 +195,7 @@ $$ f(h) \approx p(h) $$
 with 
 
 $$E \approx C*h^n$$
+
 ---
 #### Determening The Order Of Approximation In Operations. 
 
