@@ -548,7 +548,7 @@ $$g'(x) = \frac{f(x)*f''(x)}{(f'(x))^2} = 0$$
 
 Deriving again
 
-$$g''(x) = \frac{(f'(x))^2f(x)f'''(x)-f''(x)f'(x))}{f'(x))^4}$$
+$$g''(x) = \frac{(f'(x))^2f(x)f'''(x)-f''(x)f'(x))}{f'(x))^4} THIS EQUATION MIGHT NOT BE COMPLETE $$
 
 Substituting $x=p$, we get $g''(p)=\frac{f''(p)}{f'(p)}$
 
