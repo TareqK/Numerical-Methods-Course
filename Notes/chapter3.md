@@ -280,6 +280,74 @@ b = \begin{pmatrix}
 
 The cost of solving such a system (by back substitution) **is always $n^2$**
 
-----
+The cost of converting a system to upper triangular is $\sum_{1}^{n-1}2(n-1)^2+(n-1)$
 
+---
+
+###  Row Operations 
+
+1. Row Operation I : Switch two rows.
+2. Row Operation II : Multiply a row with a nonzero constante
+3. Row Operation III : Replace a row by adding it to a multiple of another row, that is $R_k \to R_k - M_{kp}R_p$
+
+---
+
+
+### Gaussian Elimination 
+
+To do gaussian elimination, we must 
+
+1. Convert $[A|b]$ into an upper triangular system $[\mu|c]$.
+2. Solve by back substitution.
+
+So the cost of the gaussian elimination
+
+$$\sum_{t=n-1}^{1}{(2(t)(t+1)+(t))} + n^2$$
+Where $t=n-k$. Which when simplified further
+
+$$\frac{4n^3 + 3n^2 -7n}{6} + n^2$$
+
+Simplifying again
+
+$$\frac{4n^3 + 9n^2 -7n}{6}$$
+
+#### Partial Pivoting
+
+Choose a pivot so that all multipliers have magnitude less than 1.
+
+Switch Rows so that the pivot element is the largest in magnitude
+
+Becuase the magnitude of multipliers is less than 1, That means that the error will decrease and the result is closer to the real value.
+
+---
+### LU Factorisation
+
+The cost is 
+
+$$\sum_{k=1}^{n-1}(2(n-k)^2+(n+k)) +(n^2 - n) + n^2$$
+
+
+Which when simplified, gives us 
+
+$$\frac{4n^3 + 9n^2 -7n}{6}$$
+
+again.
+
+---
+
+### Gauss-Jordan Reduction
+
+ the cost is 
+
+$$\frac{2n^3+n^2+n}{2}$$
+
+---
+
+### Inverse Method
+
+the cost is 
+
+$$\frac{6n^3-n^2 -n}{2} $$
+
+---
 

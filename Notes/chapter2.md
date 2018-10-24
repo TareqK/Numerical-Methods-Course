@@ -596,8 +596,8 @@ $$P_{n+1} = P_n - \frac{Mf(P_n)}{f'(P_n)}$$
 Method Name            | Requirments        | Iteration      | Convergence 
 -----------------------|--------------------|----------------|------------
 Newton| $p_0,f(p),f'(p)$| $p_{n+1} = p_n-\frac{f(p_n)}{f'(p_n)}$| $if \quad M=1, R=2, A=\frac{f''(p)}{2f'(p)}$,$if\quad M \gt 1, R=1,A=\frac{M-1}{M}$     
-Seacant|$p_0,p_1,f(p)$| $p_{n+1} = p_n-\frac{f(p_n)f(p_n-p_{n-1})}{f(p)-f(p_{n-1})}$| $if \quad M = 1,R=1.618,A=\|\frac{f''(p)}{2f'(p)}\|^{0.618},if\quad M \gt 1, R =1,$ calculate $p$ numerically and use $\frac{E_{n+1}}{E_n}$ to find $A$
-Accelarated Newton | $p_0,f(p),f'(p),M$ | $p_{n+1} = p_n-\frac{Mf(p_n)}{f'(p_n)}$| same as newton
+Seacant|$p_0,p_1,f(p)$| $p_{n+1} = p_n-\frac{f(p_n)(p_n-p_{n-1})}{f(p)-f(p_{n-1})}$| $if \quad M = 1,R=1.618,A=\|\frac{f''(p)}{2f'(p)}\|^{0.618},if\quad M \gt 1, R =1,$ calculate $p$ numerically and use $\frac{E_{n+1}}{E_n}$ to find $A$
+Accelarated Newton | $p_0,f(p),f'(p),M$ | $p_{n+1} = p_n-\frac{Mf(p_n)}{f'(p_n)}$| $R = 2$, $A$ can only be calculated numerically
 Bisection| $f(p),(a_0,b_0)$ | $c_n = \frac{a_n +b_n}{2}$, choose $(a_{n+1},b_{n+1})$ based on sign of $f(c_n)$ | $R=1,A=0.5$
 False Position | $f(p),(a_0,b_0)$|$c_n = b_n- \frac{f(b_n)(b_n-a_n)}{f(b_n)-f(a_n)}$, choose $(a_{n+1},b_{n+1})$ based on sign of $f(c_n)$ |$R=1$,$A$ can only be found numerically(as in seacant method)
 Fixed Point Iteration | $p_0,g(x)=x$ | $p_{n+1}=g(p_n)$ | $R=k$, where $k$ is the order of first nonzero derivative of $p$ , $A=\|\frac{g^{(k)}(p)}{k!}\|$
