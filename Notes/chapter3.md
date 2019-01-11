@@ -351,3 +351,19 @@ $$\frac{6n^3-n^2 -n}{2} $$
 
 ---
 
+## Summary Of Costs
+
+Operation | Solving Cost
+----------|-------------
+Solve by Cramers Rule |$ (n+1)*(cost(det(A_{nxn})) + n$
+Converting a System to Upper Triangular | $\sum_{1}^{n-1}2(n-1)^2+(n-1)$
+Cost of Solving an Upper Triangular System | $n^2$
+Solve by Gaussian Elimination | $\frac{4n^3 + 9n^2 -7n}{6}$
+Solve by LU Factorization | $\frac{4n^3 + 9n^2 -7n}{6}$
+Solve by Gauss-Jordan Reduction | $\frac{2n^3+n^2+n}{2}$
+Solve by Inverse Method | $\frac{6n^3-n^2 -n}{2} $
+
+
+
+----
+
