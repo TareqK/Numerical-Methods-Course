@@ -40,7 +40,7 @@ There are five formulas we are going to be studying
 
     $f'(x_0) \approx \frac{-f_2+8f_1-8f_{-1}+f_{-2}}{12}$ with error $E = \frac{h^4f^{(5)}(c)}{30}$
 
-5. CDF of order $O(h^2)$ for $$f''$
+5. CDF of order $O(h^2)$ for $f''$
 
     $f''(x_0) \approx \frac{f_1-2f_0+f_{-1}}{h^2}$ with error $E = \frac{-h^2f^{(4)}(c)}{12}$
 
